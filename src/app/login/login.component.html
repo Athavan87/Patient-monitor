@@ -1,0 +1,41 @@
+<div class="img">
+<mat-toolbar color="primary">
+  <img src="/brand.jpg" class="log" alt="Image">
+  <div class="log"></div>
+  <div class="webname">Hospital</div>
+  <span>Please Login</span>
+</mat-toolbar>
+<mat-card>
+  <div class="logo"></div>
+    <form autocomplete="off" (submit)="onLogin(loginForm)" #loginForm="ngForm">
+    <mat-form-field>
+      <input matInput type="text"
+        placeholder="Username"
+        name="userName" ngModel
+        required #uName="ngModel">
+      <mat-error *ngIf="uName.invalid">Please Enter the username</mat-error>
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput type="password"
+        placeholder="Password"
+        name="pwd" ngModel
+        required #pas="ngModel">
+      <mat-error *ngIf="pas.invalid">Please Enter the password</mat-error>
+    </mat-form-field><br>
+    <div class="ErrMsg" [ngStyle]="{ color: changeCss() }">{{ Msg }}</div><br>
+    <button mat-raised-button
+      type="submit"
+      color="primary" class="logbtn">
+      <i class="glyphicon glyphicon-user"></i>
+      Login
+    </button>&nbsp;&nbsp;&emsp;
+    <button type="reset" mat-raised-button
+      color="accent" class="clrbtn">
+      <i class="glyphicon glyphicon-remove"></i>Clear
+    </button>
+    </form>
+</mat-card>
+</div>
+<mat-toolbar class="footer">
+  About us.
+</mat-toolbar>

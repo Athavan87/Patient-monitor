@@ -1,0 +1,53 @@
+<div class="add-doc">
+  <mat-card class="alin">Assign Special Doctor for: {{PatName}}</mat-card>
+  <form autocomplete="off" (submit)="onSave(addDoctor)" #addDoctor="ngForm">
+    <mat-card>
+        <mat-card class="alin">Doctor Details:</mat-card>
+    <div class="row rw grid-container">
+
+      <div class="col-sm-4">
+        <mat-form-field>
+          <mat-select placeholder="Select Specialization" name="spcl" ngModel>
+            <mat-option *ngFor="let spcl of specl" [value]="spcl.value" required (click)="alt(spcl.value)">
+              {{spcl.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-4">
+        <mat-form-field>
+          <mat-select placeholder="Select Doctor" name="spcldoc" ngModel>
+            <mat-option *ngFor="let spcldoc of speclDoc" [value]="spcldoc.value" required>
+              {{spcldoc.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row rw">
+        <div class="col-sm-3">
+          <button class="save" id="save" mat-raised-button type="submit">Assign</button>
+          <button class="reset" mat-raised-button type="reset">Reset</button>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+  </form>
+</div>
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+<div style="height: 500px; margin-top: 100px;" class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"><b>Special doctor has been assigned</b></h4>
+            </div>
+            <div class="modal-body">
+                <p>Special doctor assigned</p>
+            </div>
+            <div class="modal-footer">
+                <button mat-raised-button [routerLink]="['../../pat-list']">Ok</button>&nbsp;
+                <button mat-raised-button (click)="onCloseHandled()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+.box{
+  height: 100px;
+  border: 1px solid;
+  margin-left: 70px;
+  margin-top: 20px;
+  border-radius: 3px;
+  background-color: rgba(193, 202, 211, 0.233);
+}
+.clr{
+  color: rgba(0, 8, 10, 0.938);
+}
+#chart {
+  width: 60%;
+  height: 500px;
+  margin: auto;
+  margin-bottom: -140px;
+}

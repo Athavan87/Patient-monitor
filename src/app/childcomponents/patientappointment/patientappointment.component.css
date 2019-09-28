@@ -1,0 +1,41 @@
+mat-form-field{
+  padding: 15px;
+}
+.save{
+  background-color: rgb(31, 98, 197);
+  color: beige;
+  margin-left: 15px;
+}
+.clr{
+  margin-left: 15px;
+  background-color: rgb(224, 47, 15);
+  color: beige;
+}
+.alin{
+  margin-bottom: 10px;
+  height: 30px;
+  margin-top: 10px;
+}
+mat-card{
+  width: 98%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+.col-sm-4 {
+  align-items: center;
+}
+.rw {
+  width: 95%;
+  margin: auto;
+  padding-top: 20px;
+}
+
+.grid-container {
+  grid-row-gap: 10px;
+}
+textarea {
+  height: 50px;
+}
+#sec-mat {
+width: auto;
+}

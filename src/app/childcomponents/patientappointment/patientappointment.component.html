@@ -1,0 +1,103 @@
+<div class="appointment">
+    <mat-card class="alin">Add Appointment</mat-card>
+    <form autocomplete="off" (submit)="onSave(appointment)" #appointment="ngForm">
+        <mat-card>
+            <div class="row rw grid-container">
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <mat-select placeholder="Select Doctor" name="dname" ngModel>
+                            <mat-option *ngFor="let dname of SpclDocList" [value]="dname.value" (click)="getPat(dname.value)"
+                                required>
+                                {{dname.value}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <mat-select placeholder="Patient Id" name="pname" ngModel>
+                            <mat-option *ngFor="let pname of patientId" [value]="pname.value" (click)="patId(pname.value)"
+                                required>
+                                {{pname.value}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Patient Name" name="pid" [(ngModel)]="patName"
+                            required #s_time="ngModel">
+                        <mat-error *ngIf="s_time.invalid">Please Enter the start time</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Patient Status" name="status" [(ngModel)]="patStatus"
+                            required #p_sta="ngModel">
+                        <mat-error *ngIf="p_sta.invalid">Please Enter the status</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Problem" name="prbm" [(ngModel)]="patProb" required
+                            #prbm="ngModel">
+                        <mat-error *ngIf="prbm.invalid">Please Enter the problem</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <input matInput type="date" placeholder="Appointment Date" name="appdate" ngModel required
+                            #a_date="ngModel">
+                        <mat-error *ngIf="a_date.invalid">Please Enter the appointment date</mat-error>
+                    </mat-form-field>
+                </div>
+                <button mat-raised-button class="save" (click)="checkTime(a_date.value)" type="button">Check</button>
+            </div>
+        </mat-card>
+
+        <mat-card>
+            <div class="col-sm-4">
+                <mat-form-field>
+                    <mat-select placeholder="Select Time" name="slot" ngModel>
+                        <mat-option *ngFor="let slot of DiffSlot" [value]="slot.value" required (click)="slots(slot.value)">
+                            {{slot.value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <!-- <div *ngFor="let time of showSlot">
+                {{ttime.value}}
+            </div> -->
+            <div class="row rw">
+                <div class="col-sm-4">
+                    <button mat-raised-button class="save" type="submit">Book</button>
+                    <button mat-raised-button class="clr" type="reset">Reset</button>
+                </div>
+            </div>
+        </mat-card>
+    </form>
+</div>
+
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+<div style="height: 500px; margin-top: 100px;" class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"><b>Booking Appointment</b></h4>
+            </div>
+            <div class="modal-body">
+                <p>Appointment Booking</p>
+                {{Msg}}
+            </div>
+            <div class="modal-footer">
+                <button mat-raised-button [routerLink]="['../appoint-list']">Ok</button>&nbsp;
+                <button mat-raised-button (click)="onCloseHandled()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

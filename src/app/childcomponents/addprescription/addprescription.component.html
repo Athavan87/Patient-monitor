@@ -1,0 +1,108 @@
+<mat-card class="alin">Add Prescription</mat-card>
+<div class="add-doc">
+  <mat-card>
+    <form autocomplete="off" (submit)="onSave(addprescrip)" #addprescrip="ngForm">
+      <div class="row rw grid-container">
+
+        <div class="col-sm-4">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Patient Name" name="pname" [(ngModel)]="P_NAME" 
+            required #PName="ngModel">
+            <mat-error *ngIf="PName.invalid">Please Enter the patient name</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Patient ID" name="pid" [(ngModel)]="P_Id" 
+            required #PID="ngModel">
+            <mat-error *ngIf="PID.invalid">Please Enter the patient id</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Patient Email" name="pemail" [(ngModel)]="P_EM"
+            required #Pemail="ngModel">
+            <mat-error *ngIf="Pemail.invalid">Please Enter the patient Email</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Blood Pressure" name="bp" [(ngModel)]="B_P" 
+            required #bp="ngModel">
+            <mat-error *ngIf="bp.invalid">Please Enter the blood pressure</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Doctor Name" name="dname" [(ngModel)]="D_NAME" 
+            required #dName="ngModel">
+            <mat-error *ngIf="dName.invalid">Please Enter the doctor name</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Doctor ID" name="did" [(ngModel)]="D_Id"
+            required #DID="ngModel">
+            <mat-error *ngIf="DID.invalid">Please Enter the doctor id</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Doctor Email" name="demail" [(ngModel)]="D_EM"
+            required #demail="ngModel">
+            <mat-error *ngIf="demail.invalid">Please Enter the doctor Email</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field>
+            <input matInput type="date" placeholder="Prescription Date" name="presdate" [(ngModel)]="curDate" 
+            required #pres_date="ngModel">
+            <mat-error *ngIf="pres_date.invalid">Please Enter the prescription date</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Medicine Type" name="mtype" ngModel required #mtype="ngModel">
+            <mat-error *ngIf="mtype.invalid">Please Enter the medicine type</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field>
+            <textarea matInput placeholder="Instructions" name="ins" ngModel required #ins="ngModel"></textarea>
+            <mat-error *ngIf="ins.invalid">Please Enter the instruction about medicine</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="row rw">
+          <div class="col-sm-3">
+            <button class="save" mat-raised-button color="primary" type="submit">Save</button>
+            <button class="reset" mat-raised-button type="reset">Reset</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>
+
+<!-- <button type="button" class="btn btn-info btn-lg" (click)="openModal()">click to open</button> -->
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+<div style="height: 500px; margin-top: 100px;" class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><b>Prescription has been added</b></h4>
+      </div>
+      <div class="modal-body">
+        <p>Prescription has been added.</p>
+      </div>
+      <div class="modal-footer">
+        <button mat-raised-button [routerLink]="['../presc-list']">Ok</button>&nbsp;
+        <button mat-raised-button (click)="onCloseHandled()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

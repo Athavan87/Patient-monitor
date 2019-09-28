@@ -1,0 +1,72 @@
+.sidenav-container {
+  height: 100%;
+}
+.sidenav {
+  width: 200px;
+}
+.mat-toolbar {
+  position: sticky;
+  top: 0;
+  background-color: rgba(4, 17, 29, 0.863);
+}
+mat-sidenav{
+  background-color: rgba(4, 17, 29, 0.863);
+}
+mat-nav-list a {
+  color: beige;
+}
+.contents{
+  border: 1px solid black;
+  height: 511px;
+  scroll-behavior: smooth;
+  overflow: scroll;
+}
+mat-toolbar{
+  height: 80px;
+  color: white;
+}
+.box{
+  height: 200px;
+  border: 1px solid;
+  margin-left: 70px;
+  margin-top: 40px;
+  border-radius: 3px;
+  background-color: rgba(171, 197, 223, 0.863)
+}
+.photo{
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+  background-color: white;
+}
+.dropbtn{
+  width: 200px;
+  text-align: left;
+  color: white;
+}
+.mat-menu-i {
+  width: 200px;
+  z-index: 0;
+  background-color:rgba(12, 67, 117, 0.863);
+}
+#i1{
+  margin-left: 102px;
+}
+#i2{
+  margin-left: 100px;
+}
+#i3{
+  margin-left: 68px;
+}
+#i4{
+  margin-left: 86px;
+}
+#i5{
+  margin-left: 70px;
+}
+#i6{
+  margin-left: 48px;
+}
+.dots{
+  margin-left: 80%;
+}

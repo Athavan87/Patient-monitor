@@ -1,0 +1,56 @@
+mat-toolbar{
+  height: 80px;
+  background-color: blue;
+}
+.footer{
+  margin-bottom: 0px;
+  height: 50px;
+}
+mat-card{
+  width: 45%;
+  height: auto;
+  margin: auto;
+  margin-top: 50px;
+  opacity: 0.8;
+}
+mat-form-field{
+  width: 250px;
+  margin-left: 25%;
+}
+.logbtn{
+  width: 120px;
+  margin-left: 25%;
+}
+.clrbtn{
+  width: 120px;
+}
+.img{
+  background-image: url('/assets/background-image/grey.jpg');
+  /* background-image: url(''); */
+  background-size:cover;  /*fit to display */
+  background-color: white;
+  height: 570px;
+  opacity: 1;
+}
+.ErrMsg{
+  margin-left: 25%;
+}
+.logo{
+  margin-left: 38%;
+  margin-top: -10px;
+  height: 130px;
+  width: 130px;
+  background-image: url('/assets/background-image/userblue.jpg');
+  background-size:cover;
+  border-radius: 50px;
+}
+.log{
+  max-height: 80px;
+  border-radius: 50%;
+}
+.webname{
+  margin-left: 50px;
+}
+span{
+  margin-left: 350px;
+}

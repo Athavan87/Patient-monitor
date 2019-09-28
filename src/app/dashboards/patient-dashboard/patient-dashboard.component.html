@@ -1,0 +1,68 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+      #drawer
+      class="sidenav"
+      fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+      <mat-toolbar>
+        <div class="photo"></div>
+        {{patName}}
+      </mat-toolbar>
+      <mat-nav-list>
+        <div class="navitem">
+          <button mat-button class="dropbtn" routerLink="/pat-dash" >
+            Dashboard
+          </button><br><br>
+          <button mat-button [matMenuTriggerFor]="d_menu" class="dropbtn">
+            Doctor
+            <i class="glyphicon glyphicon-triangle-bottom" id="i1"></i>
+          </button>
+          <mat-menu  #d_menu="matMenu"  [overlapTrigger]="false">
+            <button  mat-menu-item routerLink="assigned-doc" class="mat-menu-i">+ Assigned Doctors</button>
+          </mat-menu><br><br>
+
+          <button mat-button [matMenuTriggerFor]="pr_menu" class="dropbtn">
+              Prescription
+              <i class="glyphicon glyphicon-triangle-bottom" id="i5"></i>
+            </button>
+            <mat-menu  #pr_menu="matMenu" [overlapTrigger]="false">
+              <button  mat-menu-item class="mat-menu-i" routerLink="presc-list">+ Prescription</button>
+            </mat-menu><br><br>
+            <button mat-button [matMenuTriggerFor]="m_menu" class="dropbtn">
+                Medical History
+                <i class="glyphicon glyphicon-triangle-bottom" id="i6"></i>
+              </button>
+              <mat-menu  #m_menu="matMenu" [overlapTrigger]="false">
+                <button  mat-menu-item class="mat-menu-i" routerLink="med-his">+ Medical History</button>
+            </mat-menu><br><br>
+        </div>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span>Patient-Dashboard</span>
+        <mat-menu #appMenu="matMenu" [overlapTrigger]="false">
+          <button mat-menu-item routerLink="/login">Logout</button>
+          <button mat-menu-item>Help</button>
+        </mat-menu>
+
+        <button mat-icon-button [matMenuTriggerFor]="appMenu" class="dots">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </mat-toolbar>
+      <!-- Add Content Here -->
+        <div class="contents" >
+          <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

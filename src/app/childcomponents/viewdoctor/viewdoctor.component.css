@@ -1,0 +1,17 @@
+.alin{
+  height: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+mat-card{
+  width: 98%;
+  margin: auto;
+}
+.backdrop{
+  background-color:rgba(0,0,0,0.6);
+  position:fixed;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 500vh;
+}

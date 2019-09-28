@@ -1,0 +1,172 @@
+<div class="add-doc">
+    <mat-card class="alin">Doctor Details</mat-card>
+    <form autocomplete="off" (submit)="onSave(addDoctor)" #addDoctor="ngForm">
+        <mat-card>
+            <div class="row rw grid-container">
+                <div class="col-sm-4">
+                    <!-- <span>First Name:</span><br> -->
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="First Name" name="fn" ngModel required #FName="ngModel">
+                        <mat-error *ngIf="FName.invalid">Please Enter the firstname</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <!-- <span>Last Name:</span><br> -->
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Last Name" name="ln" ngModel required #LName="ngModel">
+                        <mat-error *ngIf="LName.invalid">Please Enter the lastname</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-4">
+                    <!-- <span>Email-ID:</span><br> -->
+                    <mat-form-field>
+                        <input matInput type="email" placeholder="Email Address" name="email" ngModel required #Email="ngModel">
+                        <mat-error *ngIf="Email.invalid">Please Enter the email-id</mat-error>
+                    </mat-form-field>
+                </div><br><br>
+
+                <div class="col-sm-4">
+                    <!-- <span>Password:</span><br> -->
+                    <mat-form-field>
+                        <input matInput type="password" placeholder="Password" name="pwd" ngModel required #pass="ngModel">
+                        <mat-error *ngIf="pass.invalid">Please Enter the password</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-4">
+                    <!-- <span>Address:</span><br> -->
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Address" name="addr" ngModel required #addr="ngModel">
+                        <mat-error *ngIf="addr.invalid">Please Enter the Address</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-4">
+                    <!-- <span>Mobile Number:</span><br> -->
+                    <mat-form-field>
+                        <input matInput type="number" placeholder="Phone Number" name="phone" ngModel 
+                        ng-maxlength="5" required #mob="ngModel">
+                        <mat-error *ngIf="mob.invalid">Please Enter the mobile number</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-4">
+                    <!-- <span>Specialization:</span><br> -->
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Specialization" name="spl" ngModel required #splail="ngModel">
+                        <mat-error *ngIf="splail.invalid">Please Enter the specialization of ailment</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-4">
+                    <!-- <span>Ailment Category:</span><br> -->
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="AilmentCategory" name="ailcat" ngModel required
+                            #ailcat="ngModel">
+                        <mat-error *ngIf="ailcat.invalid">Please Enter the ailment category</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <mat-select placeholder="Blood Group" name="blood" ngModel>
+                            <mat-option *ngFor="let blood of bloods" [value]="blood.value" required>
+                                {{blood.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-4">
+                    <!-- <span>Date Of Birth:</span><br> -->
+                    <mat-form-field>
+                        <input matInput type="date" placeholder="Date Of Birth" name="dob" ngModel required #dob="ngModel">
+                        <mat-error *ngIf="dob.invalid">Please Enter the date of birth</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <!-- <span>Emergency Mobile Number:</span><br> -->
+                    <mat-form-field>
+                        <input matInput type="number" placeholder="Emergency Contact" name="emcon" ngModel required
+                            #emcon="ngModel">
+                        <mat-error *ngIf="emcon.invalid">Please Enter the emergency contact</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-4">
+                    <!-- <span>Gender:</span><br> -->
+                    <mat-radio-group name="gen" ngModel>
+                        <mat-radio-button value="Male">Male</mat-radio-button>
+                        <mat-radio-button value="Female">Female</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Doctor Status" name="dstat" ngModel required #dstat="ngModel">
+                        <mat-error *ngIf="dstat.invalid">Please Enter the status of doctor</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-11">
+                    <mat-card id="ts"><b>Doctor's Time Schedule</b></mat-card>
+                    <mat-card id="content">
+                        <b>Days of week:</b><br><br>
+                        <div class="time">
+                            <mat-checkbox name="sun" [(ngModel)]="checked">Sunday</mat-checkbox><br>
+                            <mat-checkbox name="mon" [(ngModel)]="checked1">Monday</mat-checkbox><br>
+                            <mat-checkbox name="tue" [(ngModel)]="checked2">Tuesday</mat-checkbox><br>
+                            <mat-checkbox name="wed" [(ngModel)]="checked3">Wednessday</mat-checkbox><br>
+                            <mat-checkbox name="thur" [(ngModel)]="checked4">Thursday</mat-checkbox><br>
+                            <mat-checkbox name="fri" [(ngModel)]="checked5">Friday</mat-checkbox><br>
+                            <mat-checkbox name="sat" [(ngModel)]="checked6">Saturday</mat-checkbox><br>
+                        </div><br><br>
+                        <div class="time">
+                            <b>Start Time:</b><br>
+                            <mat-form-field>
+                                <mat-select placeholder="Start Time" name="stime" ngModel>
+                                    <mat-option *ngFor="let stime of Stime" [value]="stime.value" required>
+                                        {{stime.viewValue}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field><br><br>
+                            <b>End Time:</b><br>
+                            <mat-form-field>
+                                <mat-select placeholder="Start Time" name="etime" ngModel>
+                                    <mat-option *ngFor="let etime of Etime" [value]="etime.value" required>
+                                        {{etime.viewValue}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+            <div class="row rw">
+                <div class="col-sm-3">
+                    <button class="save" id="save" mat-raised-button type="submit">Save</button>
+                    <button class="reset" mat-raised-button type="reset">Reset</button>
+                </div>
+            </div>
+        </mat-card><br>
+    </form>
+</div>
+
+<!-- <button type="button" class="btn btn-info btn-lg" (click)="openModal()">click to open</button> -->
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+<div style="height: 500px; margin-top: 100px;" class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"><b>Adding Doctor</b></h4>
+            </div>
+            <div class="modal-body">
+                <p>Doctor {{name}} has been added</p>
+            </div>
+            <div class="modal-footer">
+                <button mat-raised-button [routerLink]="['../doc-list']">Ok</button>&nbsp;
+                <button mat-raised-button (click)="onCloseHandled()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

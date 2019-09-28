@@ -1,0 +1,88 @@
+<div class="add-doc">
+    <mat-card class="alin">Doctor Details</mat-card>
+    <form autocomplete="off" (submit)="onSave(addDoctor)" #addDoctor="ngForm">
+        <mat-card>
+            <mat-form-field>
+                <input matInput type="text" placeholder="First Name" value="" id="fnam" name="fn" [(ngModel)]="fn"
+                    readonly required style="background-color: lightgray;" #FName="ngModel">
+                <mat-error *ngIf="FName.invalid">Please Enter the firstname</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Last Name" id="lnam" name="ln" [(ngModel)]="ln" required
+                    #LName="ngModel" style="background-color: lightgray;" readonly>
+                <mat-error *ngIf="LName.invalid">Please Enter the lastname</mat-error>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input matInput type="email" placeholder="Email Address" id="emi" name="email" [(ngModel)]="em"
+                    readonly required #Email="ngModel" style="background-color: lightgray;">
+                <mat-error *ngIf="Email.invalid">Please Enter the email-id</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Doctor ID" id="docid" name="docid" [(ngModel)]="did" readonly
+                    required #d_id="ngModel" style="background-color: lightgray;">
+                <mat-error *ngIf="d_id.invalid">Please Enter the doctor-id</mat-error>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input matInput type="password" placeholder="Password" id="pw" name="pwd" [(ngModel)]="pwd" required
+                    #pass="ngModel">
+                <mat-error *ngIf="pass.invalid">Please Enter the password</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Address" id="adr" name="addr" [(ngModel)]="addrs" required
+                    #addr="ngModel">
+                <mat-error *ngIf="addr.invalid">Please Enter the Address</mat-error>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input matInput type="number" placeholder="Phone Number" id="mobno" name="phone" [(ngModel)]="mo"
+                    required #mob="ngModel">
+                <mat-error *ngIf="mob.invalid">Please Enter the mobile number</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Specialization" name="spl" [(ngModel)]="spcli" required
+                    #splail="ngModel">
+                <mat-error *ngIf="splail.invalid">Please Enter the specialization of ailment</mat-error>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Ailment category" id="ac" name="ailcat" 
+                [(ngModel)]="ail" required  #ailcat="ngModel">
+                <mat-error *ngIf="ailcat.invalid">Please Enter the ailment category</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-select placeholder="Blood Group" name="blood" id="bld" [(ngModel)]="bld">
+                    <mat-option *ngFor="let blood of bloods" [value]="blood.value" required>
+                        {{blood.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input matInput type="date" placeholder="Date Of Birth" id="dob" name="dob" 
+                [(ngModel)]="datbirth" required #dob="ngModel">
+                <mat-error *ngIf="dob.invalid">Please Enter the date of birth</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="number" placeholder="Emergency Contact" id="ec" name="emcon" 
+                [(ngModel)]="emer" required #emcon="ngModel">
+                <mat-error *ngIf="emcon.invalid">Please Enter the emergency contact</mat-error>
+            </mat-form-field><br>
+
+            <mat-radio-group name="gen" id=gend [(ngModel)]="ge" [value]="ge.value">
+                <mat-radio-button value="male">Male</mat-radio-button>
+                <mat-radio-button value="female">Female</mat-radio-button>
+            </mat-radio-group><br><br>
+
+            <button class="save" id="update" style="background-color: mediumblue" mat-raised-button type="submit">Update</button>
+            <button class="reset" mat-raised-button type="button" routerLink="/adm-dash/doc-list">Cancel</button>
+        </mat-card><br>
+    </form>
+</div>

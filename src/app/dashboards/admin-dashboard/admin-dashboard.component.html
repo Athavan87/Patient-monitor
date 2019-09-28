@@ -1,0 +1,96 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-toolbar>
+      <div class="photo"></div>
+      {{ SelName }}
+    </mat-toolbar>
+    <mat-nav-list>
+      <div class="navitem">
+        <button mat-button class="dropbtn" routerLink="/adm-dash">
+          Dashboard
+        </button><br><br>
+        <button mat-button [matMenuTriggerFor]="d_menu" class="dropbtn">
+          Doctor
+          <i class="glyphicon glyphicon-triangle-bottom" id="i1"></i>
+        </button>
+        <mat-menu #d_menu="matMenu" [overlapTrigger]="false">
+          <button mat-menu-item class="mat-menu-i" routerLink="add-doc" name="Add Doctor" class="btn" ng-model="name">
+            + Add Doctor
+          </button>
+          <button mat-menu-item class="mat-menu-i" routerLink="doc-list">
+            + Doctor List
+          </button>
+        </mat-menu><br><br>
+        <button mat-button [matMenuTriggerFor]="p_menu" class="dropbtn">
+          Patient
+          <i class="glyphicon glyphicon-triangle-bottom" id="i2"></i>
+        </button>
+        <mat-menu #p_menu="matMenu" [overlapTrigger]="false">
+          <button mat-menu-item class="mat-menu-i" routerLink="add-pat">+ Add Patient</button>
+          <button mat-menu-item class="mat-menu-i" routerLink="pat-list">+ Patient List</button>
+        </mat-menu><br><br>
+
+        <button mat-button [matMenuTriggerFor]="r_menu" class="dropbtn">
+          Receptionist
+          <i class="glyphicon glyphicon-triangle-bottom" id="i3"></i>
+        </button>
+        <mat-menu #r_menu="matMenu" [overlapTrigger]="false">
+          <button mat-menu-item class="mat-menu-i" routerLink="add-recep">+ Add Receptionist</button>
+          <button mat-menu-item class="mat-menu-i" routerLink="recep-list">+ Receptionist List</button>
+        </mat-menu><br><br>
+
+        <button mat-button [matMenuTriggerFor]="the_menu" class="dropbtn">
+          Therapist
+          <i class="glyphicon glyphicon-triangle-bottom" id="i4"></i>
+        </button>
+        <mat-menu #the_menu="matMenu" [overlapTrigger]="false">
+          <button mat-menu-item class="mat-menu-i" routerLink="add-therap">+ Add Therapist</button>
+          <button mat-menu-item class="mat-menu-i" routerLink="therap-list">+ Therapist List</button>
+        </mat-menu><br><br>
+        <button mat-button [matMenuTriggerFor]="t_menu" class="dropbtn">
+          Appointments
+          <i class="glyphicon glyphicon-triangle-bottom" id="i7"></i>
+        </button>
+        <mat-menu #t_menu="matMenu" [overlapTrigger]="false">
+          <button mat-menu-item class="mat-menu-i" routerLink="add-appoint">+ Add Appointment</button>
+          <button mat-menu-item class="mat-menu-i" routerLink="appoint-list">+ Appointment List</button>
+        </mat-menu><br><br>
+        <button mat-button [matMenuTriggerFor]="pr_menu" class="dropbtn">
+          Prescription
+          <i class="glyphicon glyphicon-triangle-bottom" id="i5"></i>
+        </button>
+        <mat-menu #pr_menu="matMenu" [overlapTrigger]="false">
+          <button mat-menu-item class="mat-menu-i" routerLink="presc-list">+ Prescription List</button>
+        </mat-menu><br><br>
+        <button mat-button [matMenuTriggerFor]="m_menu" class="dropbtn">
+          Medical History
+          <i class="glyphicon glyphicon-triangle-bottom" id="im"></i>
+        </button>
+        <mat-menu #m_menu="matMenu" [overlapTrigger]="false">
+          <button mat-menu-item class="mat-menu-i" routerLink="med-his">+ Medical History</button>
+        </mat-menu><br><br>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Admin-Dashboard</span>
+      <mat-menu #appMenu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item routerLink="/login">Logout</button>
+        <button mat-menu-item>Help</button>
+      </mat-menu>
+
+      <button mat-icon-button [matMenuTriggerFor]="appMenu" class="dots">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div class="contents">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

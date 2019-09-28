@@ -1,0 +1,84 @@
+<div class="add-doc">
+    <mat-card class="alin">Receptionist Details</mat-card>
+    <mat-card>
+        <form autocomplete="off" (submit)="onSave(addreception)" #addreception="ngForm">
+            <div class="row rw grid-container">
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Receptionist Name" name="uname" ngModel required #Name="ngModel">
+                        <mat-error *ngIf="Name.invalid">Please Enter the name</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <input matInput type="email" placeholder="Email Address" name="email" ngModel required #Email="ngModel">
+                        <mat-error *ngIf="Email.invalid">Please Enter the email-id</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <input matInput type="password" placeholder="Password" name="pwd" ngModel required #pass="ngModel">
+                        <mat-error *ngIf="pass.invalid">Please Enter the password</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <input matInput type="number" placeholder="Phone Number" name="phone" ngModel required #mob="ngModel">
+                        <mat-error *ngIf="mob.invalid">Please Enter the mobile number</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Address" name="addr" ngModel required #addr="ngModel">
+                        <mat-error *ngIf="addr.invalid">Please Enter the Address</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <input matInput type="date" placeholder="Date Of Birth" name="dob" ngModel required #dob="ngModel">
+                        <mat-error *ngIf="dob.invalid">Please Enter the date of birth</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <input matInput type="number" placeholder="Age" name="age" ngModel required #age="ngModel">
+                        <mat-error *ngIf="age.invalid">Please Enter the age</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-radio-group name="gender" ngModel>
+                        <mat-radio-button value="male">Male</mat-radio-button>
+                        <mat-radio-button value="female">Female</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="row rw">
+                    <div class="col-sm-3">
+                        <button class="save" mat-raised-button type="submit">Save</button>
+                        <button class="reset" mat-raised-button type="reset">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>
+
+<!-- <button type="button" class="btn btn-info btn-lg" (click)="openModal()">click to open</button> -->
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+<div style="height: 500px; margin-top: 100px;" class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"><b>Adding Receptionist</b></h4>
+            </div>
+            <div class="modal-body">
+                <p>Receptionist : {{ename}} has been added</p>
+                <p>Click <b>Ok</b> to view receptionist details</p>
+            </div>
+            <div class="modal-footer">
+                <button mat-raised-button color="primary" [routerLink]="['../recep-list']">Ok</button>&nbsp;
+                <button mat-raised-button (click)="onCloseHandled()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
