@@ -25,7 +25,7 @@
     "@angular/router": "^6.1.0",
     "angular-web-storage": "^3.0.0",
     "angular-webstorage-service": "^1.0.2",
-    "bcrypt": "^3.0.2",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "bootstrap": "^3.3.7",
     "canvasjs": "^1.8.1",
